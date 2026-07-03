@@ -63,8 +63,15 @@ window.addEventListener('scroll', () => {
         const sectionTop = section.offsetTop - 100;
         const sectionId = section.getAttribute('id');
         const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+        const scrollDot = document.querySelector(`.scroll-indicator a[href="#${sectionId}"]`);
+        
+        const isActive = scrollY > sectionTop && scrollY <= sectionTop + sectionHeight;
+        
         if (navLink) {
-            navLink.classList.toggle('active', scrollY > sectionTop && scrollY <= sectionTop + sectionHeight);
+            navLink.classList.toggle('active', isActive);
+        }
+        if (scrollDot) {
+            scrollDot.classList.toggle('active', isActive);
         }
     });
 });
