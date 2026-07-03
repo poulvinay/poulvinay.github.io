@@ -295,7 +295,7 @@ body {
 .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: var(--text-secondary); }
 .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: rgba(128, 128, 128, 0.05); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--text-primary); font-family: var(--font-main); font-size: 0.95rem; transition: var(--transition); outline: none; }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-blue); background: rgba(10, 132, 255, 0.05); box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1); }
-.form-group textarea { resize: vertical; min-height: 175px; }
+.form-group textarea { resize: vertical; min-height: 192px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 .footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--glass-border); }
