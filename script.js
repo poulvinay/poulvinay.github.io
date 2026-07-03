@@ -1,5 +1,79 @@
+const doodles = [
+    "arc.png",
+    "earthisclosedtoday.png",
+    "flyingironman.png",
+    "headphonespider.png",
+    "ironman.png",
+    "ironmanandspidy.png",
+    "loveyou3000.png",
+    "loki.png",
+    "marvel_tattoo.png",
+    "miss_minutes.png",
+    "panther.png",
+    "redandgoldspidy.png",
+    "spiderlogo.png",
+    "spidyverse-Photoroom.png",
+    "thanos.png",
+    "thors_hammer.png",
+    "ironmanlogo.png",
+    "spider_logo.png"
+];
+
 window.addEventListener('load', () => { 
     setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 800); 
+    
+    // Add doodles at well-spaced fixed locations on the viewport
+    // Dynamically calculate grid columns and rows based on screen aspect ratio and doodle count
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    const numCols = Math.ceil(Math.sqrt(doodles.length * Math.max(aspectRatio, 0.5)));
+    const numRows = Math.ceil(doodles.length / numCols);
+    
+    const cellWidth = 100 / numCols;
+    const cellHeight = 100 / numRows;
+    
+    // Create an array of all cell indices and shuffle it
+    // This avoids empty spots consistently appearing at the end of the grid
+    const totalCells = numCols * numRows;
+    const cellIndices = Array.from({length: totalCells}, (_, i) => i);
+    for (let i = cellIndices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cellIndices[i], cellIndices[j]] = [cellIndices[j], cellIndices[i]];
+    }
+    
+    doodles.forEach((doodle, index) => {
+        const cellIndex = cellIndices[index % totalCells];
+        const row = Math.floor(cellIndex / numCols);
+        const col = cellIndex % numCols;
+        
+        const img = document.createElement('img');
+        img.src = `img/doodles/${doodle}`;
+        img.className = 'doodle';
+        
+        const minTop = row * cellHeight;
+        const minLeft = col * cellWidth;
+        
+        // Use more of the cell space for randomness to avoid rigid empty gaps
+        const topPos = minTop + (Math.random() * Math.max(1, cellHeight - 12)); 
+        const leftPos = minLeft + (Math.random() * Math.max(1, cellWidth - 8));
+        
+        const size = 45 + Math.random() * 45; // 45px to 90px
+        
+        img.style.position = 'fixed'; 
+        img.style.top = `${topPos}vh`;
+        img.style.left = `${leftPos}vw`;
+        img.style.width = `${size}px`;
+        img.style.height = 'auto';
+        img.style.zIndex = '-1';
+        img.style.opacity = '0.15';
+        img.style.pointerEvents = 'none'; 
+        
+        // Randomly flip some images horizontally for more organic variety
+        if (Math.random() > 0.5) {
+            img.style.transform = 'scaleX(-1)';
+        }
+        
+        document.body.appendChild(img);
+    });
 });
 
 // Theme Switcher Logic
