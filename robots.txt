@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Explicit search-crawler access supports discovery in ChatGPT and Claude search.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 Sitemap: https://poulvinay.github.io/sitemap.xml
