@@ -12,6 +12,7 @@
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="Vinay Poul, AI Software Developer, Python Developer, Ruby on Rails Developer, LLM, RAG, vector databases, Django, Shopify, OCR">
     <meta name="theme-color" content="#0a0f1f">
+    <meta name="color-scheme" content="dark light">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -36,6 +37,7 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://poulvinay.github.io/">
+    <link rel="preload" as="image" href="img/vinay-profile-960.webp" imagesrcset="img/vinay-profile-480.webp 480w, img/vinay-profile-960.webp 960w" imagesizes="(max-width: 768px) 240px, 320px">
 
     <!-- Favicon -->
     <link rel="icon" href="img/yin-yang.png" type="image/jpeg">
@@ -51,14 +53,17 @@
 
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
-      {"@type":"WebSite","@id":"https://poulvinay.github.io/#website","url":"https://poulvinay.github.io/","name":"Vinay Poul Portfolio","inLanguage":"en-IN"},
-      {"@type":"WebPage","@id":"https://poulvinay.github.io/#webpage","url":"https://poulvinay.github.io/","name":"Vinay Poul | AI Software Developer","description":"Portfolio of Vinay Poul, an AI Software Developer at Infotech.Works.","isPartOf":{"@id":"https://poulvinay.github.io/#website"},"about":{"@id":"https://poulvinay.github.io/#vinay-poul"},"inLanguage":"en-IN"},
-      {"@type":"Person","@id":"https://poulvinay.github.io/#vinay-poul","name":"Vinay Poul","url":"https://poulvinay.github.io/","image":"https://poulvinay.github.io/img/vinay-profile.jpg","jobTitle":"AI Software Developer","worksFor":{"@type":"Organization","name":"Infotech.Works"},"email":"mailto:thepoulvinay@gmail.com","sameAs":["https://www.linkedin.com/in/vinay-poul/","https://github.com/poulvinay","https://gitlab.com/vinaypoul","https://thevinay.pythonanywhere.com/"],"knowsAbout":["Large language models","Retrieval-augmented generation","Vector databases","Python","Ruby on Rails","Django","OCR"]}
+      {"@type":"WebSite","@id":"https://poulvinay.github.io/#website","url":"https://poulvinay.github.io/","name":"Vinay Poul Portfolio","publisher":{"@id":"https://poulvinay.github.io/#vinay-poul"},"inLanguage":"en-IN"},
+      {"@type":"WebPage","@id":"https://poulvinay.github.io/#webpage","url":"https://poulvinay.github.io/","name":"Vinay Poul | AI Software Developer","description":"Portfolio of Vinay Poul, an AI Software Developer at Infotech.Works specializing in LLM applications, RAG, vector databases, Python, Ruby on Rails, and Django.","dateModified":"2026-09-15","isPartOf":{"@id":"https://poulvinay.github.io/#website"},"about":{"@id":"https://poulvinay.github.io/#vinay-poul"},"primaryImageOfPage":{"@id":"https://poulvinay.github.io/#profile-image"},"inLanguage":"en-IN"},
+      {"@type":"ImageObject","@id":"https://poulvinay.github.io/#profile-image","url":"https://poulvinay.github.io/img/vinay-profile.jpg","caption":"Vinay Poul, AI Software Developer"},
+      {"@type":"Person","@id":"https://poulvinay.github.io/#vinay-poul","name":"Vinay Poul","url":"https://poulvinay.github.io/","image":{"@id":"https://poulvinay.github.io/#profile-image"},"jobTitle":"AI Software Developer","worksFor":{"@type":"Organization","name":"Infotech.Works"},"address":{"@type":"PostalAddress","addressLocality":"Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"email":"mailto:thepoulvinay@gmail.com","sameAs":["https://www.linkedin.com/in/vinay-poul/","https://github.com/poulvinay","https://gitlab.com/vinaypoul","https://thevinay.pythonanywhere.com/"],"knowsAbout":["Large language models","Retrieval-augmented generation","Vector databases","Python","Ruby on Rails","Django","OCR","Model Context Protocol"]},
+      {"@type":"ItemList","name":"Selected software projects by Vinay Poul","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Local LLM Chat UI","applicationCategory":"DeveloperApplication","url":"https://github.com/poulvinay/ollama_user_interface","programmingLanguage":"Python"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SpaceX Launch Visualization","applicationCategory":"WebApplication","url":"https://space-x-launch-visualization.vercel.app","programmingLanguage":"Python"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Real-Time Chat Application","applicationCategory":"WebApplication","url":"https://github.com/poulvinay/ChatApp","programmingLanguage":"Ruby"}}]}
     ]}
     </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="loader" id="loader">
         <div class="loader-ring"></div>
     </div>
@@ -68,11 +73,11 @@
     <div class="floating-orb orb-2"></div>
     <div class="floating-orb orb-3"></div>
 
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Primary navigation">
         <div class="nav-logo-container">
             <img src="img/yin-yang.png" alt="Logo" class="nav-logo-img">
         </div>
-        <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -87,7 +92,7 @@
         </button>
     </nav>
 
-    <main>
+    <main id="main-content">
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-profile">
@@ -97,6 +102,7 @@
             <h1 class="hero-title">Vinay Poul <span class="gradient-text">— AI Software Developer</span></h1>
             <p class="hero-subtitle">AI Software Developer crafting intelligent solutions with LLMs, Vector Databases,
                 and modern web technologies. Currently building the future at Infotech.Works.</p>
+            <p class="hero-specialties"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Python · LLM systems · RAG · Ruby on Rails</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
                 <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> View Projects</a>
@@ -180,37 +186,37 @@
                 <div class="skill-card-icon"><i class="fas fa-robot"></i></div>
                 <h4>AI & Machine Learning</h4>
                 <p>Building intelligent systems with cutting-edge AI technologies</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/llm.png" alt="" loading="lazy">LLM</span><span class="skill-tag"><img src="img/skills/rag.png" alt="" loading="lazy">RAG</span><span class="skill-tag"><img src="img/skills/vector-databases.png" alt="" loading="lazy">Vector Databases</span><span class="skill-tag"><img src="img/skills/ocr.png" alt="" loading="lazy">OCR</span><span class="skill-tag"><img src="img/skills/opencv.png" alt="" loading="lazy">OpenCV</span></div>
+                <div class="skill-tags"><span class="skill-tag">LLM</span><span class="skill-tag">RAG</span><span class="skill-tag">Vector Databases</span><span class="skill-tag">OCR</span><span class="skill-tag">OpenCV</span></div>
             </div>
             <div class="glass-card skill-card reveal">
                 <div class="skill-card-icon"><i class="fas fa-gem"></i></div>
                 <h4>Backend Development</h4>
                 <p>Robust server-side applications with modern frameworks</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/ruby-on-rails.png" alt="" loading="lazy">Ruby on Rails</span><span class="skill-tag"><img src="img/skills/django.png" alt="" loading="lazy">Django</span><span class="skill-tag"><img src="img/skills/python.png" alt="" loading="lazy">Python</span><span class="skill-tag"><img src="img/skills/shopify.png" alt="" loading="lazy">Shopify</span><span class="skill-tag"><img src="img/skills/mcp-server.png" alt="" loading="lazy">MCP Server</span></div>
+                <div class="skill-tags"><span class="skill-tag">Ruby on Rails</span><span class="skill-tag">Django</span><span class="skill-tag">Python</span><span class="skill-tag">Shopify</span><span class="skill-tag">MCP Server</span></div>
             </div>
             <div class="glass-card skill-card reveal">
                 <div class="skill-card-icon"><i class="fas fa-database"></i></div>
                 <h4>Data & Analytics</h4>
                 <p>Turning data into actionable insights and intelligent decisions</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/sql.png" alt="" loading="lazy">SQL</span><span class="skill-tag"><img src="img/skills/data-analysis.png" alt="" loading="lazy">Data Analysis</span><span class="skill-tag"><img src="img/skills/data-visualization.png" alt="" loading="lazy">Data Visualization</span><span class="skill-tag"><img src="img/skills/big-data.png" alt="" loading="lazy">Big Data</span></div>
+                <div class="skill-tags"><span class="skill-tag">SQL</span><span class="skill-tag">Data Analysis</span><span class="skill-tag">Data Visualization</span><span class="skill-tag">Big Data</span></div>
             </div>
             <div class="glass-card skill-card reveal">
                 <div class="skill-card-icon"><i class="fas fa-globe"></i></div>
                 <h4>Web Technologies</h4>
                 <p>Full-stack web development with modern tools</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/html-css.png" alt="" loading="lazy">HTML/CSS</span><span class="skill-tag"><img src="img/skills/javascript.png" alt="" loading="lazy">JavaScript</span><span class="skill-tag"><img src="img/skills/rest-apis.png" alt="" loading="lazy">REST APIs</span><span class="skill-tag"><img src="img/skills/git.png" alt="" loading="lazy">Git</span></div>
+                <div class="skill-tags"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Git</span></div>
             </div>
             <div class="glass-card skill-card reveal">
                 <div class="skill-card-icon"><i class="fas fa-flask"></i></div>
                 <h4>Testing & Automation</h4>
                 <p>Ensuring quality through automated testing</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/selenium.png" alt="" loading="lazy">Selenium</span><span class="skill-tag"><img src="img/skills/unit-testing.png" alt="" loading="lazy">Unit Testing</span><span class="skill-tag"><img src="img/skills/debugging.png" alt="" loading="lazy">Debugging</span></div>
+                <div class="skill-tags"><span class="skill-tag">Selenium</span><span class="skill-tag">Unit Testing</span><span class="skill-tag">Debugging</span></div>
             </div>
             <div class="glass-card skill-card reveal">
                 <div class="skill-card-icon"><i class="fas fa-tools"></i></div>
                 <h4>Tools & Platforms</h4>
                 <p>Essential tools for modern development workflows</p>
-                <div class="skill-tags"><span class="skill-tag"><img src="img/skills/github.png" alt="" loading="lazy">GitHub</span><span class="skill-tag"><img src="img/skills/gitlab.png" alt="" loading="lazy">GitLab</span><span class="skill-tag"><img src="img/skills/vs-code.png" alt="" loading="lazy">VS Code</span><span class="skill-tag"><img src="img/skills/linux.png" alt="" loading="lazy">Linux</span></div>
+                <div class="skill-tags"><span class="skill-tag">GitHub</span><span class="skill-tag">GitLab</span><span class="skill-tag">VS Code</span><span class="skill-tag">Linux</span></div>
             </div>
         </div>
     </section>

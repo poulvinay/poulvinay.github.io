@@ -115,6 +115,8 @@ window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', wi
 
 navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    navToggle.setAttribute('aria-label', navLinks.classList.contains('active') ? 'Close navigation menu' : 'Open navigation menu');
     const icon = navToggle.querySelector('i');
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
@@ -123,6 +125,8 @@ navToggle.addEventListener('click', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open navigation menu');
         const icon = navToggle.querySelector('i');
         icon.classList.add('fa-bars');
         icon.classList.remove('fa-times');
