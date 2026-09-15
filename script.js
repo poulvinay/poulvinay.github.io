@@ -156,6 +156,10 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 revealElements.forEach(el => revealObserver.observe(el));
 
+document.querySelectorAll('.skill-tag img').forEach(icon => {
+    icon.addEventListener('error', () => icon.remove());
+});
+
 const scrollTopBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 500); });
 scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
