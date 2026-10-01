@@ -154,12 +154,15 @@ body {
 .hero-content { text-align: center; max-width: 900px; animation: fadeInUp 1s ease-out; }
 
 .hero-profile {
-    margin-bottom: 24px;
+    width: 178px;
+    height: 178px;
+    margin: 0 auto 24px;
     display: flex;
+    align-items: center;
     justify-content: center;
     position: relative;
 }
-.hero-profile::before { content: ''; position: absolute; width: 178px; height: 178px; border: 1px dashed rgba(96, 165, 250, 0.65); border-radius: 50%; animation: spin 18s linear infinite; }
+.hero-profile::before { content: ''; position: absolute; inset: 0; border: 1px dashed rgba(96, 165, 250, 0.65); border-radius: 50%; animation: spin 18s linear infinite; }
 .hero-profile img {
     width: 150px;
     height: 150px;
@@ -184,7 +187,7 @@ body {
     animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.5); } }
-.hero-title { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px; }
+.hero-title { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px; }
 .hero-title .gradient-text { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text-secondary); margin-bottom: 40px; font-weight: 400; max-width: 600px; margin-left: auto; margin-right: auto; }
 .hero-specialties { display: inline-flex; align-items: center; gap: 9px; margin: -18px auto 32px; padding: 7px 13px; border: 1px solid var(--glass-border); border-radius: 100px; background: var(--glass-bg); color: var(--text-secondary); font-size: 0.84rem; backdrop-filter: blur(10px); }
@@ -199,6 +202,18 @@ body {
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(10, 132, 255, 0.5); }
 .btn-secondary { background: var(--glass-bg); color: var(--text-primary); border: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
 .btn-secondary:hover { background: rgba(128, 128, 128, 0.1); transform: translateY(-2px); }
+.ai-shortcuts { margin-top: 28px; }
+.ai-shortcuts-title { color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+.ai-shortcuts-title i { color: var(--accent-green); margin-right: 6px; }
+.ai-shortcuts-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.ai-shortcut { align-items: center; background: rgba(128, 128, 128, 0.08); border: 1px solid var(--glass-border); border-radius: 100px; color: var(--text-primary); display: inline-flex; font-size: 0.8rem; font-weight: 600; gap: 8px; padding: 9px 14px; text-decoration: none; transition: var(--transition); }
+.ai-shortcut i, .ai-shortcut img { display: block; flex: 0 0 16px; font-size: 1rem; height: 16px; margin: 0; object-fit: contain; width: 16px; }
+[data-theme="dark"] .ai-shortcut.chatgpt img { filter: invert(1); }
+.ai-shortcut:hover, .ai-shortcut:focus-visible { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); outline: none; transform: translateY(-2px); }
+.ai-shortcut.google:hover, .ai-shortcut.google:focus-visible { border-color: #4285F4; color: #4285F4; }
+.ai-shortcut.grok:hover, .ai-shortcut.grok:focus-visible { border-color: var(--text-primary); }
+.ai-shortcut.chatgpt:hover, .ai-shortcut.chatgpt:focus-visible { border-color: #74AA9C; color: #74AA9C; }
+.ai-shortcut.perplexity:hover, .ai-shortcut.perplexity:focus-visible { border-color: #22B8CD; color: #22B8CD; }
 .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
 .stat-item { text-align: center; }
 .stat-number { font-size: 2rem; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -354,6 +369,7 @@ body {
     .contact-wrapper { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .hero-stats { gap: 24px; }
+    .ai-shortcuts-list { gap: 8px; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-image { height: 135px; }
     .timeline::before { left: 10px; }
@@ -364,6 +380,7 @@ body {
     .section { padding: 60px 16px; }
     .glass-card { padding: 24px; }
     .hero { padding: 100px 16px 60px; }
+    .ai-shortcut { font-size: 0.75rem; padding: 8px 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
