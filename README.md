@@ -6,7 +6,7 @@
   <a href="https://github.com/poulvinay"><img src="https://komarev.com/ghpvc/?username=poulvinay&label=Profile+Views&color=0ea5e9&style=for-the-badge" alt="poulvinay views" /></a>
   <a href="https://linkedin.com/in/vinay-poul"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="mailto:thepoulvinay@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
-  <a href="https://thevinay.pythonanywhere.com/"><img src="https://img.shields.io/badge/Portfolio-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://poulvinay.github.io/"><img src="https://img.shields.io/badge/Portfolio-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
 </p>
 
 ---
