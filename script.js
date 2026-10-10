@@ -20,6 +20,9 @@ const doodles = [
 ];
 
 window.addEventListener('load', () => { 
+    const heroVideo = document.querySelector('.hero-profile video');
+    if (heroVideo) setTimeout(() => heroVideo.play().catch(() => {}), 2000);
+
     setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 800); 
     
     // Add doodles at well-spaced fixed locations on the viewport
