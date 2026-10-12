@@ -79,4 +79,4 @@ I'm a passionate <strong>AI Software Developer</strong> currently working at <a 
 - `style.css` contains the site styles.
 - `assets/images/` groups image assets by purpose (`profile`, `projects`, `icons`, `doodles`, and `skills`).
 
-The hero video uses the smaller WebM file and loads only when the hero is near view. Decorative doodles load during idle time and are skipped for reduced-motion or data-saver preferences. Project images use lazy loading.
+The hero poster is preloaded and the smaller WebM video loads only when the hero is near view. Decorative doodles load during idle time and are skipped for reduced-motion or data-saver preferences. Project images use lazy loading. Google Fonts and Font Awesome stylesheets load asynchronously so they do not block the initial render.
