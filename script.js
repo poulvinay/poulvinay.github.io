@@ -1,82 +1,156 @@
-const doodles = [
-    "arc.png",
-    "earthisclosedtoday.png",
-    "flyingironman.png",
-    "headphonespider.png",
-    "ironman.png",
-    "ironmanandspidy.png",
-    "loveyou3000.png",
-    "loki.png",
-    "marvel_tattoo.png",
-    "miss_minutes.png",
-    "panther.png",
-    "redandgoldspidy.png",
-    "spiderlogo.png",
-    "spidyverse-Photoroom.png",
-    "thanos.png",
-    "thors_hammer.png",
-    "ironmanlogo.png",
-    "spider_logo.png"
-];
+const doodles = portfolioData.doodles;
 
-window.addEventListener('load', () => { 
-    const heroVideo = document.querySelector('.hero-profile video');
-    if (heroVideo) setTimeout(() => heroVideo.play().catch(() => {}), 2000);
+// Build repeatable page sections from the structured content in data.js.
+const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[character]));
 
-    setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 800); 
-    
-    // Add doodles at well-spaced fixed locations on the viewport
-    // Dynamically calculate grid columns and rows based on screen aspect ratio and doodle count
+const renderPortfolioContent = () => {
+    const hero = portfolioData.hero;
+    document.querySelector(".hero-badge").innerHTML = `<span class="pulse"></span> ${escapeHtml(hero.badge)}`;
+    document.querySelector(".hero-title").innerHTML = `${escapeHtml(hero.name)} <span class="gradient-text">— ${escapeHtml(hero.title)}</span>`;
+    document.querySelector(".hero-subtitle").textContent = hero.introduction;
+    document.querySelector(".hero-specialties").innerHTML = `<i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> ${hero.specialties.map(escapeHtml).join(" · ")}`;
+    document.querySelector(".hero-buttons").innerHTML = hero.buttons.map(({ label, href, icon, style }) =>
+        `<a href="${href}" class="btn btn-${style}"><i class="fas ${icon}"></i> ${escapeHtml(label)}</a>`
+    ).join("");
+    document.querySelector(".ai-shortcuts-title").innerHTML = `<i class="fas fa-sparkles" aria-hidden="true"></i> ${escapeHtml(hero.aiPrompt)}`;
+    document.querySelector(".ai-shortcuts-list").innerHTML = hero.aiShortcuts.map((shortcut) => {
+        const destination = new URL(shortcut.url);
+        destination.searchParams.set(shortcut.queryParameter, `${shortcut.prompt} https://poulvinay.github.io/`);
+        const mark = shortcut.image
+            ? `<img src="${escapeHtml(shortcut.image)}" alt="" aria-hidden="true">`
+            : `<i class="${escapeHtml(shortcut.icon)}" aria-hidden="true"></i>`;
+        return `<a class="ai-shortcut ${escapeHtml(shortcut.className)}" href="${escapeHtml(destination.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(shortcut.ariaLabel)}">${mark}<span>${escapeHtml(shortcut.name)}</span></a>`;
+    }).join("");
+
+    portfolioData.sectionHeadings.forEach(({ id, tag, title, description, icon }) => {
+        const section = document.getElementById(id);
+        section.querySelector(".section-tag").innerHTML = `<i class="fas ${icon}"></i> ${escapeHtml(tag)}`;
+        section.querySelector(".section-title").textContent = title;
+        section.querySelector(".section-desc").textContent = description;
+    });
+
+    const about = portfolioData.about;
+    document.querySelector(".about-text").innerHTML = `<h3>${escapeHtml(about.title)}</h3>${about.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}<div class="about-highlights">${about.highlights.map(({ icon, label }) => `<div class="highlight-item"><div class="highlight-icon"><i class="fas ${icon}"></i></div><span class="highlight-text">${escapeHtml(label)}</span></div>`).join("")}</div>`;
+
+    const contact = portfolioData.contact;
+    const fieldMarkup = contact.fields.map(({ id, label, placeholder, type, required }) => {
+        const control = type === "textarea"
+            ? `<textarea id="${id}" placeholder="${escapeHtml(placeholder)}"${required ? " required" : ""}></textarea>`
+            : `<input type="${type}" id="${id}" placeholder="${escapeHtml(placeholder)}"${required ? " required" : ""}>`;
+        return `<div class="form-group"><label for="${id}">${escapeHtml(label)}</label>${control}</div>`;
+    });
+    document.querySelector(".contact-wrapper").innerHTML = `<div class="glass-card contact-info"><h3>${escapeHtml(contact.formTitle)}</h3><form id="contactForm"><div class="form-row">${fieldMarkup.slice(0, 2).join("")}</div>${fieldMarkup.slice(2).join("")}<button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> ${escapeHtml(contact.submitLabel)}</button></form></div><div class="glass-card contact-form"><p>${escapeHtml(contact.invitation)}</p><div class="contact-links">${contact.links.map(({ label, value, href, icon }) => `<a href="${href}" class="contact-link" target="${href.startsWith("mailto:") ? "_self" : "_blank"}" rel="noopener noreferrer"><div class="contact-link-icon"><i class="${icon}"></i></div><div class="contact-link-text"><span class="contact-link-label">${escapeHtml(label)}</span><span class="contact-link-value">${escapeHtml(value)}</span></div></a>`).join("")}</div></div>`;
+    const footer = portfolioData.footer;
+    document.querySelector(".footer-social").innerHTML = footer.socials.map(({ label, href, icon }) =>
+        `<a href="${href}" aria-label="${escapeHtml(label)}"${href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}><i class="${icon}"></i></a>`
+    ).join("");
+    document.querySelector(".footer-contact-links").innerHTML = footer.contactLinks.map(({ label, href }) =>
+        `<a href="${href}"${href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}>${escapeHtml(label)}</a>`
+    ).join("");
+    document.querySelector(".footer-text").textContent = footer.text;
+
+    const navLinks = document.getElementById("navLinks");
+    navLinks.innerHTML = portfolioData.navigation.map(({ label, href }, index) =>
+        `<li><a href="${href}"${index === 0 ? ' class="active"' : ""}>${escapeHtml(label)}</a></li>`
+    ).join("");
+
+    document.querySelector(".hero-stats").innerHTML = portfolioData.stats.map(({ value, label }) =>
+        `<div class="stat-item"><div class="stat-number">${escapeHtml(value)}</div><div class="stat-label">${escapeHtml(label)}</div></div>`
+    ).join("");
+
+    document.querySelector(".skills-grid").innerHTML = portfolioData.skills.map(({ icon, title, description, tags }) =>
+        `<article class="glass-card skill-card reveal"><div class="skill-card-icon"><i class="fas ${icon}"></i></div><h4>${escapeHtml(title)}</h4><p>${escapeHtml(description)}</p><div class="skill-tags">${tags.map((tag) => `<span class="skill-tag">${escapeHtml(tag)}</span>`).join("")}</div></article>`
+    ).join("");
+
+    document.querySelector(".timeline").innerHTML = portfolioData.experience.map(({ date, title, company, description, award }) =>
+        `<article class="timeline-item reveal"><div class="timeline-dot"></div><div class="glass-card timeline-content"><div class="timeline-date"><i class="fas fa-calendar"></i> ${escapeHtml(date)}</div><h3 class="timeline-title">${escapeHtml(title)}</h3><p class="timeline-company">${escapeHtml(company)}</p><p class="timeline-desc">${escapeHtml(description)}</p>${award ? `<div class="timeline-award"><i class="fas fa-award"></i> ${escapeHtml(award)}</div>` : ""}</div></article>`
+    ).join("");
+
+    document.querySelector(".projects-grid").innerHTML = portfolioData.projects.map(({ title, image, alt, description, technologies, links }) => {
+        const primaryLink = links[0];
+        return `<article class="glass-card project-card reveal"><div class="project-image"><img src="${image}" width="1024" height="1024" alt="${escapeHtml(alt)}" loading="lazy" decoding="async"><div class="project-overlay"><a href="${primaryLink.href}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;"><i class="${primaryLink.icon}"></i> View Code</a></div></div><div class="project-body"><div class="project-tech">${technologies.map((technology) => `<span>${escapeHtml(technology)}</span>`).join("")}</div><h4 class="project-title">${escapeHtml(title)}</h4><p class="project-desc">${escapeHtml(description)}</p><div class="project-links">${links.map(({ label, href, icon }) => `<a href="${href}" target="_blank" rel="noopener noreferrer"><i class="${icon}"></i> ${escapeHtml(label)}</a>`).join("")}</div></div></article>`;
+    }).join("");
+
+    document.querySelector(".certs-grid").innerHTML = portfolioData.certifications.map(([title, issuer, icon]) =>
+        `<article class="glass-card cert-card reveal"><div class="cert-icon"><i class="${icon.includes("fab ") ? icon : `fas ${icon}`}"></i></div><div class="cert-info"><h5>${escapeHtml(title)}</h5><p>${escapeHtml(issuer)}</p></div></article>`
+    ).join("");
+};
+
+renderPortfolioContent();
+
+const heroVideo = document.querySelector(".hero-profile video");
+const startHeroVideo = () => {
+    if (!heroVideo || heroVideo.dataset.loaded) return;
+    heroVideo.dataset.loaded = "true";
+    heroVideo.src = heroVideo.dataset.src;
+    heroVideo.load();
+    heroVideo.addEventListener("canplay", () => heroVideo.play().catch(() => {}), { once: true });
+};
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const usesDataSaver = Boolean(navigator.connection && navigator.connection.saveData);
+
+if (!prefersReducedMotion && !usesDataSaver && "IntersectionObserver" in window && heroVideo) {
+    const videoObserver = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        startHeroVideo();
+        videoObserver.disconnect();
+    }, { rootMargin: "160px" });
+    videoObserver.observe(heroVideo);
+} else if (!prefersReducedMotion && !usesDataSaver) {
+    window.setTimeout(startHeroVideo, 1500);
+}
+
+const addDecorativeDoodles = () => {
+    const selectedDoodles = [...doodles].sort(() => Math.random() - 0.5).slice(0, 6);
     const aspectRatio = window.innerWidth / window.innerHeight;
-    const numCols = Math.ceil(Math.sqrt(doodles.length * Math.max(aspectRatio, 0.5)));
-    const numRows = Math.ceil(doodles.length / numCols);
-    
+    const numCols = Math.ceil(Math.sqrt(selectedDoodles.length * Math.max(aspectRatio, 0.5)));
+    const numRows = Math.ceil(selectedDoodles.length / numCols);
     const cellWidth = 100 / numCols;
     const cellHeight = 100 / numRows;
-    
-    // Create an array of all cell indices and shuffle it
-    // This avoids empty spots consistently appearing at the end of the grid
-    const totalCells = numCols * numRows;
-    const cellIndices = Array.from({length: totalCells}, (_, i) => i);
-    for (let i = cellIndices.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [cellIndices[i], cellIndices[j]] = [cellIndices[j], cellIndices[i]];
+    const cellIndices = Array.from({ length: numCols * numRows }, (_, index) => index);
+
+    for (let index = cellIndices.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [cellIndices[index], cellIndices[randomIndex]] = [cellIndices[randomIndex], cellIndices[index]];
     }
-    
-    doodles.forEach((doodle, index) => {
-        const cellIndex = cellIndices[index % totalCells];
+
+    selectedDoodles.forEach((doodle, index) => {
+        const cellIndex = cellIndices[index];
         const row = Math.floor(cellIndex / numCols);
-        const col = cellIndex % numCols;
-        
-        const img = document.createElement('img');
-        img.src = `img/doodles/${doodle}`;
-        img.className = 'doodle';
-        
-        const minTop = row * cellHeight;
-        const minLeft = col * cellWidth;
-        
-        // Use more of the cell space for randomness to avoid rigid empty gaps
-        const topPos = minTop + (Math.random() * Math.max(1, cellHeight - 12)); 
-        const leftPos = minLeft + (Math.random() * Math.max(1, cellWidth - 8));
-        
-        const size = 45 + Math.random() * 45; // 45px to 90px
-        
-        img.style.position = 'fixed'; 
-        img.style.top = `${topPos}vh`;
-        img.style.left = `${leftPos}vw`;
-        img.style.width = `${size}px`;
-        img.style.height = 'auto';
-        img.style.zIndex = '-1';
-        img.style.opacity = '0.15';
-        img.style.pointerEvents = 'none'; 
-        
-        // Randomly flip some images horizontally for more organic variety
-        if (Math.random() > 0.5) {
-            img.style.transform = 'scaleX(-1)';
-        }
-        
-        document.body.appendChild(img);
+        const column = cellIndex % numCols;
+        const image = document.createElement("img");
+        image.src = `assets/images/doodles/${doodle}`;
+        image.className = "doodle";
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.fetchPriority = "low";
+        image.alt = "";
+        image.setAttribute("aria-hidden", "true");
+        image.style.position = "fixed";
+        image.style.top = `${row * cellHeight + Math.random() * Math.max(1, cellHeight - 12)}vh`;
+        image.style.left = `${column * cellWidth + Math.random() * Math.max(1, cellWidth - 8)}vw`;
+        image.style.width = `${45 + Math.random() * 45}px`;
+        image.style.height = "auto";
+        image.style.zIndex = "-1";
+        image.style.opacity = "0.15";
+        image.style.pointerEvents = "none";
+        if (Math.random() > 0.5) image.style.transform = "scaleX(-1)";
+        document.body.appendChild(image);
     });
+};
+
+window.addEventListener("load", () => {
+    if (prefersReducedMotion || usesDataSaver) {
+        // Decorative images are skipped when motion is reduced or data is constrained.
+    } else if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(addDecorativeDoodles, { timeout: 2500 });
+    } else {
+        window.setTimeout(addDecorativeDoodles, 1200);
+    }
+    window.setTimeout(() => document.getElementById("loader").classList.add("hidden"), 800);
 });
 
 // Theme Switcher Logic

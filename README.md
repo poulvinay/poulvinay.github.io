@@ -71,3 +71,12 @@ I'm a passionate <strong>AI Software Developer</strong> currently working at <a 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=3B82F6&height=100&section=footer" width="100%"/>
 </p>
+## Project structure
+
+- `index.html` contains the page shell and SEO metadata.
+- `data.js` stores navigation, page copy, AI shortcut buttons, skills, experience, projects, certifications, contact, and footer data.
+- `script.js` renders repeated page content from `portfolioData` and handles page interactions.
+- `style.css` contains the site styles.
+- `assets/images/` groups image assets by purpose (`profile`, `projects`, `icons`, `doodles`, and `skills`).
+
+The hero video uses the smaller WebM file and loads only when the hero is near view. Decorative doodles load during idle time and are skipped for reduced-motion or data-saver preferences. Project images use lazy loading.
