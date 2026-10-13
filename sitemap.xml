@@ -3,23 +3,32 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://poulvinay.github.io/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://poulvinay.github.io/img/vinay-profile.jpg</image:loc>
+      <image:loc>https://poulvinay.github.io/assets/images/profile/vinay-profile-bw-960.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://poulvinay.github.io/img/proj-ollama.png</image:loc>
+      <image:loc>https://poulvinay.github.io/assets/images/projects/proj-ollama.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://poulvinay.github.io/img/proj-spacex.png</image:loc>
+      <image:loc>https://poulvinay.github.io/assets/images/projects/proj-spacex.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://poulvinay.github.io/img/proj-hotel.png</image:loc>
+      <image:loc>https://poulvinay.github.io/assets/images/projects/proj-hotel.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://poulvinay.github.io/img/proj-openai.png</image:loc>
+      <image:loc>https://poulvinay.github.io/assets/images/projects/proj-openai.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://poulvinay.github.io/resume.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://poulvinay.github.io/assets/images/profile/vinay-profile-bw-960.webp</image:loc>
     </image:image>
   </url>
 </urlset>

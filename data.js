@@ -99,7 +99,8 @@ const portfolioData = {
             { label: "LinkedIn", href: "https://www.linkedin.com/in/vinay-poul/" },
             { label: "GitHub", href: "https://github.com/poulvinay" },
             { label: "GitLab", href: "https://gitlab.com/vinaypoul" },
-            { label: "Website", href: "https://poulvinay.github.io/" }
+            { label: "Website", href: "https://poulvinay.github.io/" },
+            { label: "Resume", href: "resume.html" }
         ],
         socials: [
             { label: "LinkedIn", href: "https://www.linkedin.com/in/vinay-poul/", icon: "fab fa-linkedin-in" },
