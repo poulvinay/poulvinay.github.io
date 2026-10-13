@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Resume of Vinay Vikram Poul, software developer building AI-powered tools, automations, and SaaS solutions.">
+<meta name="keywords" content="Software Developer, AI Engineer, LLM, LangChain, LangGraph, RAG, n8n, Flowise, Ollama, Python, Django, Ruby on Rails, REST API, SaaS, Pune">
+<title>Vinay Vikram Poul | Software Developer</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Vinay Vikram Poul","jobTitle":"Software Developer","email":"mailto:thepoulvinay@gmail.com","telephone":"+917756860900","address":{"@type":"PostalAddress","addressLocality":"Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"worksFor":{"@type":"Organization","name":"Infotech Works"},"alumniOf":["M. S. Bidve Engineering College, Latur","SRTMUN University, Latur"],"knowsAbout":["LangChain","LangGraph","RAG","Ollama","n8n","Flowise","Python","Django","Ruby on Rails","REST APIs","SQL","Google Cloud Platform"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Orbitron:wght@700;800&amp;family=Rajdhani:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Orbitron:wght@700;800&amp;family=Rajdhani:wght@600;700&amp;display=swap"></noscript>
+<style>
+:root {
+  color-scheme: dark;
+  --red: #b5121b;
+  --red-hot: #e1262f;
+  --gold: #d9a52e;
+  --gunmetal: #15191f;
+  --cyan: #00d9ff;
+  --paper: #f3f4f6;
+  --muted: #aeb7c2;
+  --soft: #d8dce2;
+  --font-tech: "Orbitron", "Arial Narrow", Arial, sans-serif;
+  --font-label: "Rajdhani", "Arial Narrow", Arial, sans-serif;
+  --font-body: Inter, "Segoe UI", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: #0b0e12; }
+body {
+  margin: 0;
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(181,18,27,.18), transparent 32%),
+    radial-gradient(ellipse at 6% 94%, rgba(217,165,46,.07), transparent 29%),
+    var(--gunmetal);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.38;
+}
+a { color: inherit; text-decoration: none; }
+.resume {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 980px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 28px 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(181,18,27,.10), transparent 30%),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    #11151a;
+  background-size: auto, 28px 28px, 28px 28px, auto;
+}
+.resume > * { position: relative; z-index: 1; }
+.resume::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 9px;
+  border: 1px solid rgba(217,165,46,.32);
+  pointer-events: none;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font: 700 9px/1.3 var(--font-tech);
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 220px;
+  gap: 20px;
+  align-items: center;
+  min-height: 188px;
+  margin: 12px 0 13px;
+  padding: 18px 20px;
+  overflow: hidden;
+  border: 1px solid rgba(181,18,27,.75);
+  border-left: 4px solid var(--red-hot);
+  background: linear-gradient(105deg, rgba(37,43,52,.58) 0%, rgba(21,25,31,.78) 63%, rgba(21,25,31,.72) 100%);
+  box-shadow: inset 0 1px rgba(255,255,255,.08), 0 12px 28px rgba(0,0,0,.22);
+}
+.hero::before { content: ""; position: absolute; pointer-events: none; }
+.hero::before { inset: 7px; border: 1px solid rgba(217,165,46,.16); clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+.hero-copy { position: relative; z-index: 1; }
+.eyebrow { margin: 0 0 7px; color: var(--gold); font: 700 9px/1.3 var(--font-tech); letter-spacing: 2px; text-transform: uppercase; }
+h1 { margin: 0; color: #fff; font: 800 clamp(29px,4vw,44px)/.98 var(--font-tech); letter-spacing: -.8px; }
+h1 span { color: var(--red-hot); }
+.role { margin: 8px 0 9px; color: #f0d9a1; font: 700 14px/1.3 var(--font-label); letter-spacing: 1.2px; }
+.summary { max-width: 590px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.45; }
+.contact { display: flex; flex-wrap: wrap; gap: 5px 13px; margin-top: 10px; color: #c4ccd5; font-size: 9px; }
+.contact span { white-space: nowrap; }
+.metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin-top: 11px; max-width: 580px; }
+.metric { padding: 6px 8px; border: 1px solid rgba(217,165,46,.28); border-bottom: 2px solid var(--red); background: rgba(10,13,17,.53); }
+.metric strong { display: block; color: var(--gold); font: 700 10px/1.3 var(--font-tech); }
+.metric small { color: var(--muted); font: 700 7px/1.3 var(--font-label); letter-spacing: .7px; text-transform: uppercase; }
+.columns { display: grid; grid-template-columns: minmax(0,1.14fr) minmax(270px,.86fr); gap: 11px; }
+.stack { display: grid; align-content: start; gap: 10px; }
+.panel { position: relative; min-width: 0; padding: 10px 12px; border: 1px solid rgba(181,18,27,.38); border-left: 3px solid var(--red); background: linear-gradient(115deg,rgba(37,43,52,.54),rgba(20,24,30,.72)); box-shadow: inset 0 1px rgba(255,255,255,.035); break-inside: avoid; }
+.panel::before { content: ""; position: absolute; top: -1px; right: -1px; width: 14px; height: 14px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+h2 { display: flex; align-items: center; gap: 7px; margin: 0 0 7px; color: #f2c55e; font: 700 9px/1.2 var(--font-tech); letter-spacing: .75px; text-transform: uppercase; }
+h2::before { content: ""; display: inline-block; width: 13px; height: 3px; background: var(--red-hot); box-shadow: 0 0 6px rgba(225,38,47,.45); }
+p { margin: 0; }
+.panel-copy { color: var(--soft); font-size: 10px; }
+.job { padding: 0 0 8px; margin: 0 0 8px; border-bottom: 1px solid rgba(217,165,46,.17); }
+.job:last-child { padding: 0; margin: 0; border: 0; }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.job-title { color: #fff; font-size: 11px; font-weight: 700; }
+.date { flex: none; color: var(--gold); font: 700 7px/1.2 var(--font-tech); white-space: nowrap; }
+.company { margin: 2px 0 4px; color: #ef8990; font-size: 9px; font-weight: 700; }
+ul { margin: 3px 0 0; padding-left: 14px; color: #d1d7df; font-size: 9px; }
+li { padding-left: 1px; margin: 0 0 2px; }
+li::marker { color: var(--gold); }
+.project { padding: 6px 0; border-top: 1px solid rgba(217,165,46,.17); }
+.project:first-of-type { padding-top: 0; border-top: 0; }
+.project strong { color: #fff; font-size: 10px; }
+.project p { margin-top: 2px; color: var(--soft); font-size: 9px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag { padding: 3px 5px; border: 1px solid rgba(0,217,255,.26); color: #bceefa; font: 700 7px/1.1 var(--font-label); }
+.edu-row { display: flex; justify-content: space-between; gap: 7px; margin-bottom: 6px; color: var(--soft); font-size: 9px; }
+.edu-row:last-child { margin-bottom: 0; }
+.edu-row strong { color: #fff; }
+.footer { margin-top: 10px; padding-top: 7px; border-top: 1px solid rgba(181,18,27,.68); font-size: 7px; letter-spacing: .75px; }
+.footer span:last-child { text-align: right; }
+/* Keep the armor-inspired theme while following the DOCX section flow. */
+.columns { display: flex; flex-direction: column; gap: 9px; }
+.stack { display: contents; }
+section[aria-labelledby="certifications-title"] { order: 1; }
+section[aria-labelledby="skills-title"] { order: 2; }
+section[aria-labelledby="experience-title"] { order: 3; }
+section[aria-labelledby="projects-title"] { order: 4; }
+section[aria-labelledby="highlights-title"] { order: 5; }
+section[aria-labelledby="education-title"] { order: 6; }
+.panel { break-inside: avoid; }
+.date { flex: 0 1 auto; white-space: normal; text-align: right; }
+.edu-row { align-items: baseline; }
+.contact { align-items: center; }
+.contact + .eyebrow { margin-top: 12px; }
+.keywords { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 0; padding: 0; list-style: none; }
+.keywords li { margin: 0; padding: 3px 7px; border: 1px solid rgba(217,165,46,.4); background: rgba(217,165,46,.08); color: #f0d9a1; font: 700 8px/1.2 var(--font-label); letter-spacing: .6px; text-transform: uppercase; }
+.keywords li::marker { content: ""; }
+.skill-group { margin: 0 0 7px; }
+.skill-group:last-child { margin: 0; }
+.skill-group h3 { margin: 0 0 3px; color: var(--cyan); font: 700 8px/1.3 var(--font-label); letter-spacing: .9px; text-transform: uppercase; }
+.skill-group .tags { margin-top: 0; }
+.skill-group .tag { color: #e5e8ec; border-color: rgba(217,165,46,.28); font-size: 8px; padding: 3px 6px; }
+.impact { color: var(--gold); font-weight: 700; }
+section[aria-labelledby="competencies-title"] { order: 0; }
+@media (max-width: 700px) {
+  .resume { padding: 20px 16px; }
+  .hero { grid-template-columns: minmax(0,1fr) 122px; gap: 7px; padding: 14px 13px; }
+  .columns { grid-template-columns: 1fr; }
+}
+@media (max-width: 430px) {
+  .hero { grid-template-columns: 1fr; }
+  h1 { font-size: clamp(21px, 6.2vw, 25px); line-height: 1.08; }
+  .summary { max-width: 100%; padding-right: 4px; }
+  .contact { max-width: 270px; }
+  .metrics { gap: 4px; }
+  .metric { padding: 5px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+
+/* Interactive details */
+h1 { text-shadow: 0 0 22px rgba(225,38,47,.28); }
+.role { background: linear-gradient(90deg, #f0d9a1, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.contact a { transition: color .2s; }
+.contact a:hover { color: var(--cyan); }
+.profile { position: absolute; z-index: 1; top: 50%; right: 28px; width: 150px; height: 150px; margin: 0; padding: 5px; transform: translateY(-50%); border-radius: 50%; background: none; box-shadow: 0 0 0 5px rgba(181,18,27,.18), 0 0 26px rgba(217,165,46,.28); }
+.profile-video { display: block; width: 100%; height: 100%; border: 3px solid #11151a; border-radius: 50%; object-fit: cover; }
+.profile-print-image, .profile-print-image[hidden] { display: none !important; }
+.profile .initials { display: none; }
+.profile.no-photo .initials { display: grid; width: 100%; height: 100%; place-items: center; border: 3px solid #11151a; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #2a313b, #11151a); color: var(--gold); font: 800 38px var(--font-tech); letter-spacing: 2px; }
+@keyframes ring { to { transform: rotate(360deg); } }
+.profile::before { content: ""; position: absolute; z-index: -1; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, var(--red-hot), var(--gold), var(--cyan), var(--red-hot)); animation: ring 8s linear infinite; }
+@media (max-width: 760px) { .profile { position: relative; top: auto; right: auto; transform: none; width: 96px; height: 96px; margin: 0 0 12px; } .hero { display: block; } .profile.no-photo .initials { font-size: 26px; } }
+/* Panels */
+.panel { transition: transform .25s ease, border-color .25s, box-shadow .25s; }
+.panel:hover { transform: translateY(-2px); border-color: rgba(225,38,47,.75); box-shadow: 0 10px 26px rgba(0,0,0,.35), 0 0 0 1px rgba(217,165,46,.12), inset 0 1px rgba(255,255,255,.05); }
+h2::after { content: attr(data-n); margin-left: auto; color: rgba(217,165,46,.35); font: 700 9px var(--font-tech); letter-spacing: 1px; }
+.metric { transition: transform .2s, border-color .2s, background .2s; }
+.metric:hover { transform: translateY(-2px); border-color: var(--gold); background: rgba(217,165,46,.08); }
+.tag, .keywords li { transition: transform .15s, color .15s, border-color .15s, box-shadow .15s, background .15s; cursor: default; }
+.tag:hover { color: #fff; border-color: var(--cyan); box-shadow: 0 0 10px rgba(0,217,255,.35); transform: translateY(-1px); }
+.keywords li:hover { background: rgba(217,165,46,.2); border-color: var(--gold); transform: translateY(-1px); }
+/* Experience timeline feel */
+.job, .job:last-child { position: relative; padding: 0 0 0 14px; margin: 0; border-left: 2px solid rgba(225,38,47,.5); border-bottom: 0; }
+.job::before { content: ""; position: absolute; left: -6px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: var(--red-hot); box-shadow: 0 0 10px rgba(225,38,47,.8); }
+.job .date { padding: 2px 6px; border: 1px solid rgba(217,165,46,.4); background: rgba(217,165,46,.07); }
+.job li strong { color: #fff; }
+.project { transition: padding-left .2s, border-color .2s; }
+.project:hover { padding-left: 6px; border-left: 2px solid var(--gold); }
+/* Floating actions */
+.fab { position: fixed; z-index: 10; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+.fab a, .fab button { padding: 9px 13px; border: 1px solid var(--gold); background: rgba(17,21,26,.92); color: var(--gold); font: 700 10px/1 var(--font-tech); letter-spacing: 1px; text-transform: uppercase; cursor: pointer; backdrop-filter: blur(6px); transition: background .2s, color .2s, box-shadow .2s; }
+.fab a:hover, .fab button:hover, .fab a:focus-visible, .fab button:focus-visible { background: var(--red-hot); color: #fff; border-color: var(--red-hot); box-shadow: 0 0 16px rgba(225,38,47,.5); outline: none; }
+.back-site { position: fixed; z-index: 10; left: 16px; bottom: 16px; display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--gold); border-radius: 50%; background: rgba(17,21,26,.94); color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,.35); transition: background .2s, color .2s, transform .2s; }
+.back-site:hover, .back-site:focus-visible { transform: translateX(-2px); background: var(--red-hot); color: #fff; border-color: var(--red-hot); outline: none; }
+::selection { background: var(--red-hot); color: #fff; }
+::-webkit-scrollbar { width: 9px; } ::-webkit-scrollbar-track { background: #0b0e12; } ::-webkit-scrollbar-thumb { background: var(--red); }
+@media (max-width: 700px) { .fab a { display: none; } }
+@media (prefers-reduced-motion: reduce) { .profile::before { animation: none !important; } }
+@page { size:A4 portrait; margin:0; }
+@media print {
+  :root { color-scheme:light; }
+  html, body, .resume { background:#fff !important; color:#17191c !important; }
+  html, body { width:210mm; min-height:0; margin:0; }
+  body { font-size:10px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .resume { display:block; width:210mm; min-height:0; margin:0; padding:7mm 9mm 6mm; overflow:visible; box-shadow:none; }
+  .resume::before { inset:4mm; border:1px solid #aeb3b9; }
+  .footer { color:#41464d; }
+  .hero { position:relative; display:block; min-height:0; margin:6px 0 8px; padding:10px 12px; border:1px solid #70757b; border-left:3px solid #555; background:#fff !important; box-shadow:none; }
+  .hero::before { display:none; }
+  .hero-copy { padding-right:112px; }
+  h1,h2,.job-title,.project strong,.edu-row strong { color:#17191c !important; text-shadow:none; }
+  h1 { font-size:25px; }
+  h1 span,.role,.eyebrow,h2,.date,.company,.skill-group h3,.impact { color:#343a40 !important; }
+  .role { background:none; -webkit-text-fill-color:currentColor; }
+  .summary,.contact,.panel-copy,ul,.project p,.edu-row,.tag,.footer { color:#292d32 !important; }
+  .summary { font-size:10px; line-height:1.45; }
+  .contact { font-size:8px; }
+  .eyebrow { font-size:8px; }
+  .panel-copy { font-size:9px; }
+  .profile { position:absolute; width:88px; height:88px; top:10px; right:12px; left:auto; margin:0; transform:none; padding:3px; background:#555; box-shadow:none; }
+  .profile::before { display:none; }
+  .profile-video { display:none; }
+  .profile-print-image:not([hidden]) { display:block !important; width:100%; height:100%; object-fit:cover; border:2px solid #fff; border-radius:50%; }
+  .profile-print-image[hidden] { display:none !important; }
+  .profile.no-photo .initials { display:grid; place-items:center; width:100%; height:100%; border:2px solid #fff; border-radius:50%; background:#fff; color:#17191c; font:800 24px var(--font-tech); }
+  .keywords li,.metric,.panel { background:#fff !important; box-shadow:none; }
+  .keywords li,.metric,.panel,.tag { border-color:#aeb3b9; }
+  .metric { border-bottom:2px solid #555; }
+  .metric strong { color:#17191c; font-size:9px; }
+  .metric small { color:#41464d; font-size:7px; }
+  .columns { display:grid; grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr); gap:7px; align-items:start; }
+  .stack { display:grid; min-width:0; align-content:start; gap:7px; }
+  .panel { padding:7px 8px; border-left:2px solid #555; break-inside:avoid; }
+  h2 { margin-bottom:6px; font-size:8px; }
+  .job-title { font-size:10px; }
+  .date { font-size:7px; }
+  .company { font-size:8px; }
+  ul { font-size:8px; }
+  .project strong { font-size:9px; }
+  .project p { font-size:8px; }
+  .tag,.keywords li { font-size:7px; }
+  .skill-group h3 { font-size:7.5px; }
+  .skill-group .tag { font-size:7px; }
+  .edu-row { font-size:8px; }
+  .panel::before { border-color:#777; }
+  h2::before { background:#555; box-shadow:none; }
+  .job,.job:last-child { padding-left:8px; border-left-color:#777; }
+  .job::before { width:6px; height:6px; left:-4px; background:#555; box-shadow:none; }
+  .job .date { background:#fff; }
+  .tag { background:#fff; }
+  .footer { margin-top:7px; border-color:#777; font-size:6px; }
+  .fab,.back-site { display:none !important; }
+  .panel:hover,.metric:hover,.project:hover { transform:none; }
+  * { animation:none !important; }
+}
+</style>
+</head>
+<body>
+<main class="resume" aria-label="Vinay Vikram Poul resume">
+  <header class="hero">
+    <figure class="profile" id="profile">
+      <video class="profile-video" autoplay muted playsinline preload="metadata" poster="assets/images/profile/vinay-profile-bw-480.webp" aria-label="Vinay Vikram Poul profile video">
+        <source src="assets/images/profile/profile-video.webm" type="video/webm">
+      </video>
+      <img class="profile-print-image" alt="Vinay Vikram Poul" width="150" height="150" hidden>
+      <span class="initials" aria-hidden="true">VP</span>
+    </figure>
+    <div class="hero-copy">
+      <h1>VINAY VIKRAM <span>POUL</span></h1>
+      <p class="role">Software Developer · AI &amp; Automation · SaaS Delivery</p>
+      <div class="contact" aria-label="Contact information">
+        <span>Pune, Maharashtra, India</span><span><a href="mailto:thepoulvinay@gmail.com">thepoulvinay@gmail.com</a></span><span><a href="tel:+917756860900">+91 7756860900</a></span>
+        <span>LinkedIn</span><span>GitHub</span><span>Portfolio</span>
+      </div>
+      <p class="eyebrow">PROFESSIONAL SUMMARY</p>
+      <p class="summary">Software developer with 2+ years of experience building AI-powered tools, automations, and SaaS solutions in a small, fast-moving team. Delivers end-to-end: scopes requirements with stakeholders, ships production code, and trains colleagues on new tools. Hands-on with LLM and agent frameworks (LangChain, LangGraph), workflow automation (n8n, Flowise), RAG, and cloud and local AI deployments (Ollama). Certified in AI Fluency and Claude Code fundamentals (Anthropic Education); active open-source contributor and hackathon participant. Recognized with the “Extra Miler Award.”</p>
+      <ul class="keywords" aria-label="Core keywords"><li>LLM Applications</li><li>LangChain / LangGraph</li><li>RAG</li><li>AI Automation</li><li>Python</li><li>Django</li><li>Ruby on Rails</li><li>REST APIs</li><li>SQL</li><li>GCP</li></ul>
+      <div class="metrics" aria-label="Profile highlights">
+        <div class="metric"><strong>2+ YEARS</strong><small>Professional software development</small></div>
+        <div class="metric"><strong>MULTIPLE SAAS</strong><small>Client projects shipped end-to-end</small></div>
+        <div class="metric"><strong>EXTRA MILER</strong><small>Award for initiative &amp; quality</small></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="columns">
+    <div class="stack">
+      <section class="panel" aria-labelledby="experience-title">
+        <h2 id="experience-title" data-n="03">Professional Experience</h2>
+        <article class="job">
+          <div class="job-head"><div class="job-title">Software Developer</div><div class="date">AUG 2024 – PRESENT</div></div>
+          <div class="company">Infotech Works · Pune, India</div>
+          <ul>
+            <li>Delivered multiple client <strong>SaaS projects end-to-end</strong>, gathering requirements directly from stakeholders and adapting to changing priorities.</li>
+            <li>Built <strong>AI automation workflows</strong> with LangChain, n8n, and Flowise, and trained teammates to maintain and extend them independently.</li>
+            <li>Deployed <strong>LLMs on cloud platforms and locally with Ollama</strong>, balancing performance against cost constraints.</li>
+            <li>Designed and integrated <strong>REST APIs</strong> connecting disparate systems, enabling smoother workflows across client applications.</li>
+            <li>Built <strong>background job and scheduled-task systems</strong> to improve processing efficiency, with documentation for handoff.</li>
+            <li>Translated ambiguous requirements into clear deliverables and <strong>shipped on schedule</strong> in a resource-constrained team.</li>
+            <li>Received the <strong>“Extra Miler Award”</strong> for initiative beyond assigned tasks and consistently high-quality work.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Ruby on Rails</span><span class="tag">LangChain</span><span class="tag">n8n</span><span class="tag">Flowise</span><span class="tag">Ollama</span><span class="tag">REST APIs</span><span class="tag">GCP</span></div>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="projects-title">
+        <h2 id="projects-title" data-n="04">Selected Projects</h2>
+        <article class="project">
+          <strong>Public Blogging Platform</strong>
+          <p>Identified the need and scoped the project solo, from data model to deployment. Built an intuitive admin interface for content creation, management, and category-based organization to improve discovery, with clean navigation and reader-focused UX. Retrofitted automated tests and a caching layer after launch — lesson learned: add both earlier.</p>
+          <div class="tags"><span class="tag">SaaS</span><span class="tag">Full-stack</span><span class="tag">Admin UI</span><span class="tag">Caching</span><span class="tag">Testing</span></div>
+        </article>
+        <article class="project">
+          <strong>Exploratory Data Analysis — IMDb &amp; Olympics</strong>
+          <p>Cleaned and analyzed Kaggle datasets, applying statistical analysis to derive evidence-based insights, and communicated findings through clear visualizations.</p>
+          <div class="tags"><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Statistics</span></div>
+        </article>
+        <article class="project">
+          <strong>Personal Portfolio Website</strong>
+          <p>Built a dynamic portfolio website with Django and Bootstrap to showcase academic achievements, skills, and project work.</p>
+          <div class="tags"><span class="tag">Django</span><span class="tag">Bootstrap</span></div>
+        </article>
+      </section>
+    </div>
+
+    <div class="stack">
+      <section class="panel" aria-labelledby="skills-title">
+        <h2 id="skills-title" data-n="02">Technical Skills</h2>
+        <div class="skill-group"><h3>Languages</h3><div class="tags"><span class="tag">Python</span><span class="tag">Ruby</span><span class="tag">JavaScript</span></div></div>
+        <div class="skill-group"><h3>AI / LLM & Agents</h3><div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Ollama</span><span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">Embeddings</span><span class="tag">Vector Databases</span></div></div>
+        <div class="skill-group"><h3>Workflow Automation</h3><div class="tags"><span class="tag">n8n</span><span class="tag">Flowise</span></div></div>
+        <div class="skill-group"><h3>Web & APIs</h3><div class="tags"><span class="tag">Django</span><span class="tag">Ruby on Rails</span><span class="tag">REST APIs</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span></div></div>
+        <div class="skill-group"><h3>Data & Analysis</h3><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">SQL</span><span class="tag">GIS Functions</span></div></div>
+        <div class="skill-group"><h3>Tools & Platforms</h3><div class="tags"><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">Google Cloud Platform</span></div></div>
+      </section>
+
+      <section class="panel" aria-labelledby="education-title">
+        <h2 id="education-title" data-n="06">Education</h2>
+        <div class="edu-row"><span><strong>Master of Computer Application (MCA)</strong><br>M. S. Bidve Engineering College, Latur</span><span class="date">AUG 2024 – JUN 2026 (EXPECTED)</span></div>
+        <div class="edu-row"><span><strong>Bachelor of Computer Application (BCA)</strong><br>SRTMUN University, Latur – COCSIT</span><span class="date">JUN 2021 – JUL 2024</span></div>
+      </section>
+
+      <section class="panel" aria-labelledby="certifications-title">
+        <h2 id="certifications-title" data-n="01">Certifications</h2>
+        <div class="edu-row"><span><strong>AI Fluency for Students</strong><br>Anthropic Education</span><span class="date">JUL 11, 2026</span></div>
+        <div class="edu-row"><span><strong>Claude Code 101</strong><br>Anthropic Education</span><span class="date">JUL 6, 2026</span></div>
+      </section>
+
+      <section class="panel" aria-labelledby="highlights-title">
+        <h2 id="highlights-title" data-n="05">Additional Initiative</h2>
+        <p class="panel-copy">Contributes bug fixes and features to open-source GitHub repositories; builds working prototypes under time constraints at hackathons; completes Google Cloud Arcade challenges for hands-on GCP experience.</p>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span>VINAY VIKRAM POUL · SOFTWARE DEVELOPER</span>
+    <span>Resume · 2026</span>
+  </footer>
+</main>
+<nav class="fab" aria-label="Actions">
+  <a href="mailto:thepoulvinay@gmail.com">Hire me</a>
+  <button id="savePdf" type="button">Save PDF</button>
+</nav>
+<a class="back-site" href="/" aria-label="Back to portfolio site" title="Back to portfolio site">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<script>
+const profileVideo = document.querySelector(".profile-video");
+const profilePrintImage = document.querySelector(".profile-print-image");
+const profileFigure = document.getElementById("profile");
+
+document.getElementById("savePdf").addEventListener("click", () => window.print());
+
+if (profileVideo && profilePrintImage) {
+  const captureFinalFrame = () => {
+    if (!profileVideo.videoWidth || !profileVideo.videoHeight) return;
+
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = profileVideo.videoWidth;
+      canvas.height = profileVideo.videoHeight;
+      canvas.getContext("2d").drawImage(profileVideo, 0, 0);
+      profilePrintImage.src = canvas.toDataURL("image/png");
+    } catch (error) {
+      // Printing falls back to the initials if frame capture is unavailable.
+    }
+  };
+
+  profileVideo.addEventListener("ended", captureFinalFrame, { once: true });
+  profileVideo.addEventListener("error", () => profileFigure.classList.add("no-photo"), { once: true });
+  window.addEventListener("beforeprint", () => {
+    if (!profilePrintImage.src && profileVideo.readyState >= 2) captureFinalFrame();
+    if (profilePrintImage.src) profilePrintImage.hidden = false;
+  });
+  window.addEventListener("afterprint", () => {
+    profilePrintImage.hidden = true;
+  });
+}
+</script>
+</body>
+</html>

@@ -52,6 +52,19 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .resume-prompt { position:fixed; inset:0; width:min(92vw, 430px); max-height:calc(100vh - 32px); margin:auto; padding:28px; overflow:auto; border:1px solid rgba(255,255,255,.18); border-radius:20px; background:#111827; color:#f8fafc; box-shadow:0 24px 90px rgba(0,0,0,.55); }
+        .resume-prompt::backdrop { background:rgba(3,7,18,.72); backdrop-filter:blur(5px); }
+        .resume-prompt h2 { margin:0 0 8px; font-size:1.35rem; }
+        .resume-prompt p { margin:0 0 22px; color:#cbd5e1; line-height:1.55; }
+        .resume-prompt-actions { display:flex; align-items:center; gap:12px; }
+        .resume-prompt-actions a { text-decoration:none; }
+        .resume-prompt-close { border:0; background:transparent; color:#cbd5e1; padding:12px 8px; font:inherit; cursor:pointer; }
+        .resume-fab { position:fixed; z-index:999; left:30px; bottom:30px; display:grid; width:48px; height:48px; place-items:center; border:0; border-radius:50%; background:var(--gradient-1); color:#fff; font-size:1.15rem; cursor:pointer; box-shadow:0 4px 20px rgba(10,132,255,.3); transition:var(--transition); }
+        .resume-fab:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(10,132,255,.5); }
+        @media (max-width:600px) { .resume-fab { left:18px; bottom:20px; } .resume-prompt { padding:22px; } .resume-prompt-actions { align-items:stretch; flex-direction:column; } .resume-prompt-actions .btn { justify-content:center; } }
+        @media (prefers-reduced-motion:no-preference) { .resume-prompt[open] { animation:resume-prompt-in .2s ease-out; } @keyframes resume-prompt-in { from { opacity:0; transform:translateY(8px) scale(.98); } to { opacity:1; transform:none; } } }
+    </style>
 
     <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[
@@ -195,10 +208,44 @@
     </div>
 
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+    <button class="resume-fab" id="resumePromptOpen" type="button" aria-label="Open resume options" aria-haspopup="dialog" title="Resume options"><i class="fas fa-file-arrow-down" aria-hidden="true"></i></button>
+
+    <dialog class="resume-prompt" id="resumePrompt" aria-labelledby="resumePromptTitle" aria-describedby="resumePromptText">
+        <h2 id="resumePromptTitle">Short on time?</h2>
+        <p id="resumePromptText">Get a quick view of my experience, skills, and contact details in my resume.</p>
+        <div class="resume-prompt-actions">
+            <a class="btn btn-primary" href="resume.html"><i class="fas fa-file-lines" aria-hidden="true"></i> View resume</a>
+            <button class="resume-prompt-close" type="button">Maybe later</button>
+        </div>
+    </dialog>
 
     <!-- External JS -->
     <script src="data.js"></script>
     <script src="script.js"></script>
+    <script>
+        const resumePrompt = document.getElementById("resumePrompt");
+        const resumePromptKey = "resumePromptSeen";
+        const closeResumePrompt = () => {
+            resumePrompt.close();
+            try { sessionStorage.setItem(resumePromptKey, "true"); } catch (error) {}
+        };
+        document.getElementById("resumePromptOpen").addEventListener("click", () => {
+            if (!resumePrompt.open) resumePrompt.showModal();
+        });
+        resumePrompt.querySelector(".resume-prompt-close").addEventListener("click", closeResumePrompt);
+        resumePrompt.addEventListener("click", (event) => {
+            if (event.target === resumePrompt) closeResumePrompt();
+        });
+        let hasSeenResumePrompt = false;
+        try { hasSeenResumePrompt = sessionStorage.getItem(resumePromptKey) === "true"; } catch (error) {}
+        if (!hasSeenResumePrompt) {
+            window.setTimeout(() => {
+                if (resumePrompt.open) return;
+                resumePrompt.showModal();
+                try { sessionStorage.setItem(resumePromptKey, "true"); } catch (error) {}
+            }, 1100);
+        }
+    </script>
 </body>
 
 </html>
