@@ -235,17 +235,39 @@ body {
 .glass-card:hover { transform: translateY(-4px); border-color: var(--accent-blue); box-shadow: var(--glass-shadow); }
 
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.about-image-wrapper {
-    width: 100%; aspect-ratio: 1; max-width: 400px; margin: 0 auto;
-    border-radius: var(--radius-xl); background: var(--gradient-1); padding: 3px;
-}
-.about-image-inner {
-    width: 100%; height: 100%; border-radius: calc(var(--radius-xl) - 3px);
-    background: var(--bg-secondary); overflow: hidden;
-}
-.about-image-inner img {
-    width: 100%; height: 100%; object-fit: cover;
-}
+.about-image .profile-card { width: 100%; max-width: 400px; aspect-ratio: 4 / 5; margin: 0 auto; perspective: 1200px; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+.profile-card-flipper { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2,.75,.25,1); }
+.profile-card.is-flipped .profile-card-flipper { transform: rotateY(180deg); }
+.profile-card:focus-visible .profile-card-face { outline: 3px solid var(--accent-blue); outline-offset: 4px; }
+.profile-card-face { position: absolute; inset: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius-lg); background: #0b1220; color: #fff; box-shadow: 0 24px 55px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.15); backface-visibility: hidden; -webkit-backface-visibility: hidden; isolation: isolate; }
+.profile-card-front { display: flex; flex-direction: column; }
+.profile-card-image { position: relative; flex: 1 1 68%; min-height: 0; overflow: hidden; background: #171c27; }
+.profile-card-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; user-select: none; }
+.profile-card-rim { position: absolute; z-index: 3; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); pointer-events: none; }
+.profile-card-label { position: absolute; z-index: 1; top: 18px; left: 18px; right: 18px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.5); color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.7); font-size: .68rem; font-weight: 700; letter-spacing: .16em; }
+.profile-card-label i { font-size: 1rem; }
+.profile-card-info { position: relative; z-index: 2; flex: 0 0 auto; min-height: 32%; padding: 18px 22px 40px; background: linear-gradient(145deg,#151b29,#090e18); }
+.profile-card-kicker,.profile-card-back-head { color: #93c5fd; font-size: .68rem; font-weight: 700; letter-spacing: .16em; }
+.profile-card-info h3 { margin: 5px 0 3px; font-size: clamp(1.45rem,5vw,1.9rem); line-height: 1.1; letter-spacing: -.04em; }
+.profile-card-info p { margin: 0; color: rgba(255,255,255,.82); font-size: .92rem; }
+.profile-card-flip-hint { position: absolute; z-index: 2; right: 16px; bottom: 14px; left: 16px; color: rgba(255,255,255,.66); font-size: .66rem; text-align: center; }
+.profile-card-holo { position: absolute; z-index: 2; inset: 0; background: repeating-linear-gradient(115deg,transparent 0 12%,rgba(255,80,105,.12) 13%,rgba(255,225,150,.12) 15%,rgba(100,220,255,.13) 18%,transparent 21% 30%),radial-gradient(ellipse at var(--light-x,50%) var(--light-y,50%),rgba(255,255,255,.2),transparent 48%); background-size: 240% 240%; background-position: var(--light-x,50%) var(--light-y,50%); mix-blend-mode: screen; opacity: calc(.38 * var(--holo-active,0)); filter: saturate(1.1); pointer-events: none; transition: opacity .25s ease; }
+.profile-card-holo::after { position: absolute; inset: 0; content: ""; background: radial-gradient(ellipse at var(--light-x,50%) var(--light-y,50%),rgba(255,255,255,.2),transparent 55%); mix-blend-mode: soft-light; }
+.profile-card-back { display: flex; flex-direction: column; padding: clamp(20px,5vw,30px); transform: rotateY(180deg); background: radial-gradient(ellipse at top right,rgba(59,130,246,.24),transparent 45%),linear-gradient(145deg,#111827,#070b14 75%); }
+.profile-card-back-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.16); }
+.profile-card-back-head i { color: rgba(255,255,255,.42); font-size: 1.3rem; }
+.profile-card-back h3 { margin: 20px 0 6px; font-size: 1.45rem; }
+.profile-card-summary { margin: 0; color: rgba(255,255,255,.72); font-size: .82rem; line-height: 1.5; }
+.profile-card-details { display: grid; gap: 13px; margin: 20px 0; }
+.profile-card-details div { display: grid; grid-template-columns: 78px 1fr; gap: 8px; align-items: start; }
+.profile-card-details dt { color: #93c5fd; font-size: .62rem; font-weight: 700; letter-spacing: .11em; }
+.profile-card-details dd { margin: 0; color: rgba(255,255,255,.92); font-size: .76rem; line-height: 1.35; }
+.profile-card-contact { display: flex; width: fit-content; align-items: center; gap: 10px; margin-top: auto; padding: 10px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: var(--radius-sm); background: rgba(255,255,255,.09); color: #fff; font-size: .8rem; font-weight: 600; text-decoration: none; }
+.profile-card-contact:hover { background: rgba(255,255,255,.16); }
+.profile-card-back .profile-card-flip-hint { bottom: 12px; font-size: .65rem; }
+.profile-card-instruction { max-width: 360px; margin: 14px auto 0; color: var(--text-secondary); font-size: .8rem; text-align: center; }
+@media (max-width: 420px) { .profile-card-face { border-radius: var(--radius-md); } .profile-card-back { padding: 20px; } .profile-card-back h3 { margin-top: 14px; } .profile-card-details { gap: 10px; margin: 14px 0; } }
+@media (prefers-reduced-motion: reduce) { .profile-card-flipper { transition-duration: .01ms; } .profile-card-holo { transition: none; } }
 .about-text h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
 .about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
 .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }

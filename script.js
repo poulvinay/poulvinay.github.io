@@ -237,6 +237,56 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 revealElements.forEach(el => revealObserver.observe(el));
 
+const profileCard = document.getElementById('aboutProfileCard');
+if (profileCard) {
+    const front = profileCard.querySelector('.profile-card-front');
+    const back = profileCard.querySelector('.profile-card-back');
+    const imageArea = profileCard.querySelector('.profile-card-image');
+    let sheenTimer;
+    const showProfileCardSheen = (clientX, clientY) => {
+        const bounds = imageArea.getBoundingClientRect();
+        if (clientX < bounds.left || clientX > bounds.right || clientY < bounds.top || clientY > bounds.bottom) {
+            profileCard.style.setProperty('--holo-active', '0');
+            return;
+        }
+        const x = Math.max(0, Math.min(1, (clientX - bounds.left) / bounds.width));
+        const y = Math.max(0, Math.min(1, (clientY - bounds.top) / bounds.height));
+        profileCard.style.setProperty('--light-x', `${x * 100}%`);
+        profileCard.style.setProperty('--light-y', `${y * 100}%`);
+        profileCard.style.setProperty('--holo-active', '1');
+    };
+    const resetProfileCardSheen = () => profileCard.style.setProperty('--holo-active', '0');
+    const flipProfileCard = () => {
+        const isFlipped = profileCard.classList.toggle('is-flipped');
+        profileCard.setAttribute('aria-pressed', String(isFlipped));
+        front.setAttribute('aria-hidden', String(isFlipped));
+        back.setAttribute('aria-hidden', String(!isFlipped));
+        front.inert = isFlipped;
+        back.inert = !isFlipped;
+    };
+    profileCard.addEventListener('click', event => {
+        if (!event.target.closest('a')) flipProfileCard();
+    });
+    profileCard.addEventListener('pointermove', event => {
+        if (event.pointerType !== 'touch') showProfileCardSheen(event.clientX, event.clientY);
+    });
+    profileCard.addEventListener('pointerleave', resetProfileCardSheen);
+    profileCard.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'touch') {
+            showProfileCardSheen(event.clientX, event.clientY);
+            window.clearTimeout(sheenTimer);
+            sheenTimer = window.setTimeout(resetProfileCardSheen, 700);
+        }
+    });
+    profileCard.addEventListener('keydown', event => {
+        if (event.target.closest('a')) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            flipProfileCard();
+        }
+    });
+}
+
 document.querySelectorAll('.skill-tag img').forEach(icon => {
     icon.addEventListener('error', () => icon.remove());
 });

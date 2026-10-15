@@ -131,11 +131,33 @@
         </div>
         <div class="about-grid">
             <div class="about-image reveal">
-                <div class="about-image-wrapper">
-                    <div class="about-image-inner">
-                        <img src="assets/images/profile/vinay-profile-bw-960.webp" srcset="assets/images/profile/vinay-profile-bw-480.webp 480w, assets/images/profile/vinay-profile-bw-960.webp 960w" sizes="(max-width: 768px) 280px, 400px" width="960" height="960" alt="Vinay Poul, AI Software Developer" loading="lazy" decoding="async">
+                <article class="profile-card" id="aboutProfileCard" aria-label="Developer ID card for Vinay Poul" tabindex="0" role="button" aria-pressed="false" aria-describedby="profileCardHint">
+                    <div class="profile-card-flipper">
+                        <section class="profile-card-face profile-card-front" aria-label="ID card front">
+                            <div class="profile-card-image">
+                                <img class="profile-card-photo" src="assets/images/profile/vinay-profile-bw-960.webp" srcset="assets/images/profile/vinay-profile-bw-480.webp 480w, assets/images/profile/vinay-profile-bw-960.webp 960w" sizes="(max-width: 768px) 280px, 400px" width="960" height="960" alt="Portrait of Vinay Poul" loading="lazy" decoding="async">
+                                <span class="profile-card-label">DEVELOPER ID <i class="fas fa-microchip" aria-hidden="true"></i></span>
+                                <div class="profile-card-holo" aria-hidden="true"></div>
+                            </div>
+                            <div class="profile-card-info"><span class="profile-card-kicker">AI · SOFTWARE</span><h3>Vinay Poul</h3><p>AI Software Developer</p></div>
+                            <div class="profile-card-rim" aria-hidden="true"></div>
+                        </section>
+                        <section class="profile-card-face profile-card-back" aria-label="ID card details" aria-hidden="true" inert>
+                            <div class="profile-card-back-head"><span>PROFILE / 001</span><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
+                            <h3>Developer Profile</h3>
+                            <p class="profile-card-summary">I build intelligent applications that bring AI research into useful, real-world products.</p>
+                            <dl class="profile-card-details">
+                                <div><dt>FOCUS</dt><dd>LLMs · RAG · Vector Databases</dd></div>
+                                <div><dt>STACK</dt><dd>Python · Django · Rails · Shopify</dd></div>
+                                <div><dt>BASED AT</dt><dd>Pune, Maharashtra · India</dd></div>
+                                <div><dt>WORKPLACE</dt><dd>Infotech.Works</dd></div>
+                            </dl>
+                            <a class="profile-card-contact" href="mailto:thepoulvinay@gmail.com">Get in touch <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <div class="profile-card-rim" aria-hidden="true"></div>
+                        </section>
                     </div>
-                </div>
+                </article>
+                <p class="profile-card-instruction" id="profileCardHint">Tap or click the card to view my developer ID details.</p>
             </div>
         <div class="about-text reveal"></div>
         </div>
