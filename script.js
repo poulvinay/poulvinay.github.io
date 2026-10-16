@@ -41,7 +41,7 @@ const renderPortfolioContent = () => {
             : `<input type="${type}" id="${id}" placeholder="${escapeHtml(placeholder)}"${required ? " required" : ""}>`;
         return `<div class="form-group"><label for="${id}">${escapeHtml(label)}</label>${control}</div>`;
     });
-    document.querySelector(".contact-wrapper").innerHTML = `<div class="glass-card contact-info"><h3>${escapeHtml(contact.formTitle)}</h3><form id="contactForm"><div class="form-row">${fieldMarkup.slice(0, 2).join("")}</div>${fieldMarkup.slice(2).join("")}<button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> ${escapeHtml(contact.submitLabel)}</button></form></div><div class="glass-card contact-form"><p>${escapeHtml(contact.invitation)}</p><div class="contact-links">${contact.links.map(({ label, value, href, icon }) => `<a href="${href}" class="contact-link" target="${href.startsWith("mailto:") ? "_self" : "_blank"}" rel="noopener noreferrer"><div class="contact-link-icon"><i class="${icon}"></i></div><div class="contact-link-text"><span class="contact-link-label">${escapeHtml(label)}</span><span class="contact-link-value">${escapeHtml(value)}</span></div></a>`).join("")}</div></div>`;
+document.querySelector(".contact-wrapper").innerHTML = `<div class="glass-card contact-form"><h3>${escapeHtml(contact.formTitle)}</h3><form id="contactForm"><div class="form-row">${fieldMarkup.slice(0, 2).join("")}</div>${fieldMarkup.slice(2).join("")}<button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> ${escapeHtml(contact.submitLabel)}</button></form></div><div class="glass-card contact-info"><p>${escapeHtml(contact.invitation)}</p><div class="contact-links">${contact.links.map(({ label, value, href, icon }) => `<a href="${href}" class="contact-link" target="${href.startsWith("mailto:") ? "_self" : "_blank"}" rel="noopener noreferrer"><div class="contact-link-icon"><i class="${icon}"></i></div><div class="contact-link-text"><span class="contact-link-label">${escapeHtml(label)}</span><span class="contact-link-value">${escapeHtml(value)}</span></div></a>`).join("")}</div></div>`;
     const footer = portfolioData.footer;
     document.querySelector(".footer-social").innerHTML = footer.socials.map(({ label, href, icon }) =>
         `<a href="${href}" aria-label="${escapeHtml(label)}"${href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}><i class="${icon}"></i></a>`
@@ -268,9 +268,20 @@ if (profileCard) {
         if (!event.target.closest('a')) flipProfileCard();
     });
     profileCard.addEventListener('pointermove', event => {
-        if (event.pointerType !== 'touch') showProfileCardSheen(event.clientX, event.clientY);
+        if (event.pointerType !== 'touch') {
+            showProfileCardSheen(event.clientX, event.clientY);
+            const bounds = profileCard.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            profileCard.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
+            profileCard.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
+        }
     });
-    profileCard.addEventListener('pointerleave', resetProfileCardSheen);
+    profileCard.addEventListener('pointerleave', () => {
+        resetProfileCardSheen();
+        profileCard.style.setProperty('--tilt-x', '0deg');
+        profileCard.style.setProperty('--tilt-y', '0deg');
+    });
     profileCard.addEventListener('pointerdown', event => {
         if (event.pointerType === 'touch') {
             showProfileCardSheen(event.clientX, event.clientY);
@@ -299,15 +310,14 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const surname = document.getElementById('surname').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = `Portfolio Contact from ${name} ${surname}`;
-    const body = `Name: ${name} ${surname}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
-    window.location.href = `mailto:thepoulvinay@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    e.target.reset();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const fullName = `${name.trim()} ${surname.trim()}`.trim();
+    const body = `Name: ${fullName}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:thepoulvinay@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const btn = e.target.querySelector('button');
     const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+    btn.innerHTML = '<i class="fas fa-envelope-open-text"></i> Opening Email Draft...';
     btn.style.background = 'linear-gradient(135deg, #30D158, #64D2FF)';
     setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ''; }, 3000);
 });

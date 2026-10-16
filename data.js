@@ -80,7 +80,7 @@ const portfolioData = {
         fields: [
             { id: "name", label: "First Name", placeholder: "John", type: "text", required: true },
             { id: "surname", label: "Last Name", placeholder: "Doe", type: "text", required: false },
-            { id: "email", label: "Email", placeholder: "john@example.com", type: "email", required: true },
+            { id: "subject", label: "Subject", placeholder: "What would you like to discuss?", type: "text", required: true },
             { id: "message", label: "Message", placeholder: "Tell me about your project...", type: "textarea", required: true }
         ],
         submitLabel: "Send Message",
