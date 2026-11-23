@@ -125,7 +125,7 @@
 
     <section class="section" id="about">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-user"></i> About Me</div>
+            <a class="section-tag" href="#about"><i class="fas fa-user" aria-hidden="true"></i> About Me</a>
             <h2 class="section-title">Passionate about building intelligent systems</h2>
             <p class="section-desc">A developer who loves turning complex problems into elegant solutions</p>
         </div>
@@ -165,7 +165,7 @@
 
     <section class="section" id="skills" aria-labelledby="skills-title">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-code"></i> Skills & Expertise</div>
+            <a class="section-tag" href="#skills"><i class="fas fa-code" aria-hidden="true"></i> Skills &amp; Expertise</a>
             <h2 class="section-title" id="skills-title">Technologies I work with</h2>
             <p class="section-desc">A diverse toolkit for building modern, intelligent applications</p>
         </div>
@@ -175,7 +175,7 @@
 
     <section class="section" id="experience">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-briefcase"></i> Experience</div>
+            <a class="section-tag" href="#experience"><i class="fas fa-briefcase" aria-hidden="true"></i> Experience</a>
             <h2 class="section-title">My professional journey</h2>
             <p class="section-desc">Building impactful solutions and growing every day</p>
         </div>
@@ -185,7 +185,7 @@
 
     <section class="section" id="projects">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-rocket"></i> Projects</div>
+            <a class="section-tag" href="#projects"><i class="fas fa-rocket" aria-hidden="true"></i> Projects</a>
             <h2 class="section-title">Selected Projects</h2>
             <p class="section-desc">Showcasing my open-source work across AI, web development, and data science</p>
         </div>
@@ -195,7 +195,7 @@
 
     <section class="section" id="certifications">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-certificate"></i> Certifications</div>
+            <a class="section-tag" href="#certifications"><i class="fas fa-certificate" aria-hidden="true"></i> Certifications</a>
             <h2 class="section-title">Continuous learning</h2>
             <p class="section-desc">16+ certifications from industry leaders</p>
         </div>
@@ -205,7 +205,7 @@
 
     <section class="section" id="contact">
         <div class="section-header reveal">
-            <div class="section-tag"><i class="fas fa-envelope"></i> Contact</div>
+            <a class="section-tag" href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a>
             <h2 class="section-title">Let's work together</h2>
             <p class="section-desc">Have a project in mind? Let's create something amazing</p>
         </div>
@@ -265,7 +265,7 @@
                 if (resumePrompt.open) return;
                 resumePrompt.showModal();
                 try { sessionStorage.setItem(resumePromptKey, "true"); } catch (error) {}
-            }, 1100);
+            }, 5 * 60 * 1000);
         }
     </script>
 </body>
