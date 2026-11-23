@@ -46,9 +46,6 @@ document.querySelector(".contact-wrapper").innerHTML = `<div class="glass-card c
     document.querySelector(".footer-social").innerHTML = footer.socials.map(({ label, href, icon }) =>
         `<a href="${href}" aria-label="${escapeHtml(label)}"${href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}><i class="${icon}"></i></a>`
     ).join("");
-    document.querySelector(".footer-contact-links").innerHTML = footer.contactLinks.map(({ label, href }) =>
-        `<a href="${href}"${href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"'}>${escapeHtml(label)}</a>`
-    ).join("");
     document.querySelector(".footer-text").textContent = footer.text;
 
     const navLinks = document.getElementById("navLinks");

@@ -94,14 +94,6 @@ const portfolioData = {
     },
     footer: {
         text: "Designed & Built with ❤ by Vinay Poul © 2026",
-        contactLinks: [
-            { label: "Email", href: "mailto:thepoulvinay@gmail.com" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/in/vinay-poul/" },
-            { label: "GitHub", href: "https://github.com/poulvinay" },
-            { label: "GitLab", href: "https://gitlab.com/vinaypoul" },
-            { label: "Website", href: "https://poulvinay.github.io/" },
-            { label: "Resume", href: "resume.html" }
-        ],
         socials: [
             { label: "Instagram", href: "https://www.instagram.com/vinay.poul/", icon: "fab fa-instagram" },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/vinay-poul/", icon: "fab fa-linkedin-in" },
