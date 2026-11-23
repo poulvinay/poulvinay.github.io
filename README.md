@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&height=80&lines=Hi+there,+I'm+Vinay+Poul;AI+Software+Developer;Master+of+Computer+Applications;Passionate+About+Data+Science" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&height=80&lines=Hi+there,+I'm+Vinay+Poul;AI+Software+Developer;Master+of+Computer+Applications;Passionate+About+AI" alt="Typing SVG" />
 </div>
 
 <p align="center">
@@ -13,7 +13,7 @@
 
 ### 👨‍💻 About Me
 <p align="justify">
-I'm a passionate <strong>AI Software Developer</strong> currently working at <a href="https://infotech.works" target="_blank">Infotech.Works</a>, crafting intelligent solutions with LLMs, Vector Databases, and modern web technologies. I am pursuing my <strong>Master of Computer Applications (MCA)</strong> at M.S. Bidve Engineering College and was recently recognized with the <strong>Extra Millar Award</strong> for my contributions. When I'm not coding, I enjoy exploring new tech and watching Marvel movies! 🚀
+I'm a passionate <strong>AI Software Developer</strong> currently working at <a href="https://infotech.works" target="_blank">Infotech.Works</a>, crafting intelligent solutions with LLMs, Vector Databases, and modern web technologies. I am pursuing my <strong>Master of Computer Applications (MCA)</strong> at M.S. Bidve Engineering College and was recognized with the <strong>Extra Millar Award</strong> for my contributions. When I'm not coding, I enjoy exploring new tech and watching Marvel movies! 🚀
 </p>
 
 ---
@@ -45,38 +45,16 @@ I'm a passionate <strong>AI Software Developer</strong> currently working at <a 
 ### 📊 GitHub Analytics
 
 <div align="center">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=poulvinay&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="GitHub Stats" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=poulvinay&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top Languages" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=poulvinay&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=poulvinay&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" height="180" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=poulvinay&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" height="180" alt="Top Languages" />
 </div>
 
 ---
 
 ### 🏆 Certifications & Projects
 - 🏅 **Certifications:** 16+ Certifications including Data Science, AI, and Backend Development.
-- 🚀 **Projects:** Built several GUI applications, AI Interfaces, and Web Apps using Python and modern web frameworks. Check out my repositories for more details!
-
----
+- 🚀 **Projects:** Built several SAAS applications, AI Interfaces, and Web Apps using Python, Rails, Shopify. Laravel and Tools. Check out my repositories for more details!
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=3B82F6&height=100&section=footer" width="100%"/>
 </p>
-## Project structure
-
-- `index.html` contains the page shell and SEO metadata.
-- `data.js` stores navigation, page copy, AI shortcut buttons, skills, experience, projects, certifications, contact, and footer data.
-- `script.js` renders repeated page content from `portfolioData` and handles page interactions.
-- `style.css` contains the site styles.
-- `assets/images/` groups image assets by purpose (`profile`, `projects`, `icons`, `doodles`, and `skills`).
-
-The hero poster is preloaded and the smaller WebM video loads only when the hero is near view. Decorative doodles load during idle time and are skipped for reduced-motion or data-saver preferences. Project images use lazy loading. Google Fonts and Font Awesome stylesheets load asynchronously so they do not block the initial render.
